@@ -31,7 +31,7 @@ class observerStore {
         entries.forEach(entry => {
             // based on the type(data-attr of tht el) set the entryStoreObj to the required callback fn and args
             let entryStoreObj = this.callbackFnObjForEachEntry[entry.target.getAttribute(this.options.dataAttr)];
-            //if not type is given then the default dataAttr is set as entryType
+            //if no type is given then the default dataAttr is set as entryType
             let entryType = entryStoreObj && entryStoreObj.type || entry.target.getAttribute(this.options.dataAttr);
             if (entryStoreObj) {
                 //the value to check how much % el should be visible to call the callback fn

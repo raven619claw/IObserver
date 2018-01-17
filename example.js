@@ -3,8 +3,8 @@ import 'index';
 function _setUpIntersectionObForModules() {
     let options = {
       //set this attr on the elements to be used as entry for Observer
-      //required is only the dataAttr
-      //rest are optional
+      //all are optional
+      //this dataAttr val will be set to default if no specific attr value given in the callbackObj
         dataAttr: 'data-io-type'
     }
     let ob = new IObService('module-loader', options);
@@ -17,7 +17,7 @@ function _setUpIntersectionObForModules() {
     let modulesToLoad = [SELECTORS.EL_1, SELECTORS.EL_2];
 
     let callbackfnObj = {
-    //define the type as the attr property of data-io-type on the el
+    //define the type of each el or the attr property of data-io-type on the el is set as the type
         'el_type_1': {
             type: 'el_type_1',
             limit: 0,

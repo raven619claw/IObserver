@@ -3,9 +3,12 @@ import 'index';
 function _setUpIntersectionObForModules() {
     let options = {
       //set this attr on the elements to be used as entry for Observer
-      //all are optional
-      //this dataAttr val will be set to default if no specific attr value given in the callbackObj
+      //dataAttr is mandatory
+      //it is used to find the type of the entry when it's callback is called
+      //can use already existing data attr
         dataAttr: 'data-io-type'
+      //if no dataAttr is found then pass a default prop to the callbackfnObj to be called 
+      //even if not used pass this as there is a mandatory dataAttr check in the checkOptions Fn
     }
     let ob = new IObService('module-loader', options);
     if (!ob.featurePresent) {
@@ -30,6 +33,16 @@ function _setUpIntersectionObForModules() {
         },
         'el_type_2': {
             type: 'el_type_2',
+            limit: 0,
+            once: true,
+            fn: (args) => {
+                callback_2();
+            }
+        },
+        //use this in case you already have elements selected based on a class or other attrs
+        //so for all those elements the default will be called and you can use a switch case to diff. between those el in you callback
+        'default': {
+            type: 'default',
             limit: 0,
             once: true,
             fn: (args) => {

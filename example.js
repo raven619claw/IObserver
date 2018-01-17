@@ -17,6 +17,7 @@ function _setUpIntersectionObForModules() {
         callback_2();
         return;
     }
+    //SELECTORS can be classes ,id or such internally uses querySelectorAll to find the elements on the page
     let modulesToLoad = [SELECTORS.EL_1, SELECTORS.EL_2];
 
     let callbackfnObj = {

@@ -1,4 +1,4 @@
-import 'intersectionObserverService';
+import 'index';
 // call this func to setup the service and use for elements
 function _setUpIntersectionObForModules() {
     let options = {

@@ -22,6 +22,8 @@ function _setUpIntersectionObForModules() {
             type: 'el_type_1',
             limit: 0,
             once: true,
+            //pass a fn in closure and it will be called with the args in the observerService with the args of the observer 
+            //or just pass a callback if you dont want to use any args or use bind
             fn: (args) => {
                 callback_1();
             }
@@ -31,7 +33,7 @@ function _setUpIntersectionObForModules() {
             limit: 0,
             once: true,
             fn: (args) => {
-                callback_2;
+                callback_2();
             }
         }
     };
